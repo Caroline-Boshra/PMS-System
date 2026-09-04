@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "product_name": "Nicole Pollard",
+        "category_id": "2",
+        "price": "533",
+        "stock_quantity": "773",
+        "image": "img_6a982cd393de02.85604117.png",
+        "description": "Accusantium qui eu i",
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "product_name": "Kelly Copeland",
+        "category_id": "4",
+        "price": "157",
+        "stock_quantity": "647",
+        "image": "img_6a988266517c65.33901598.png",
+        "description": "Eum veniam dolore r",
+        "status": "inactive"
+    },
+    {
+        "id": 5,
+        "product_name": "Chava Boyd",
+        "category_id": "2",
+        "price": "3",
+        "stock_quantity": "70",
+        "image": "img_6a9882a4a4f932.01721248.png",
+        "description": "Reprehenderit nisi",
+        "status": "active"
+    },
+    {
+        "id": 6,
+        "product_name": "Aristotle George",
+        "category_id": "3",
+        "price": "247",
+        "stock_quantity": "276",
+        "image": "img_6a988d7da708a5.51427758.png",
+        "description": "Neque ullamco fugiat",
+        "status": "active"
+    },
+    {
+        "id": 7,
+        "product_name": "Zane Gibson",
+        "category_id": "3",
+        "price": "845",
+        "stock_quantity": "71",
+        "image": "img_6a9a0d1f9f0640.71368261.png",
+        "description": "Eos est voluptas qu",
+        "status": "active"
+    },
+    {
+        "id": 8,
+        "product_name": "Gage Mcleod",
+        "category_id": "3",
+        "price": "671",
+        "stock_quantity": "75",
+        "image": "img_6a9a117f0318c5.86117482.png",
+        "description": "Eum commodi quae est",
+        "status": "active"
+    }
+]

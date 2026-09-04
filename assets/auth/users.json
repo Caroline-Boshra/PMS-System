@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Colton Walter",
+        "email": "vijuxes@mailinator.com",
+        "password": "$2y$10$u9QCp6HrOej7yo.Duvv\/nOqfNfJZVuNzF8ciGn7vQYzRrKUk2S0HS"
+    },
+    {
+        "id": 2,
+        "name": "Nadine Schultz",
+        "email": "qigo@mailinator.com",
+        "password": "$2y$10$aZHTaYoqxLVG8LzoYbbF1OSzGojZ\/TRcheRjcx2O4oFt615jyPCEK"
+    },
+    {
+        "id": 3,
+        "name": "Caroline George",
+        "email": "karolingeorge2011@gmail.com",
+        "password": "$2y$10$MQk3wZ6xnbSjbxdOC4L\/L.ie\/tEimzioHPyXmq4Dzie6WEXIcD05e"
+    },
+    {
+        "id": 4,
+        "name": "tena",
+        "email": "tena@gmail.com",
+        "password": "$2y$10$mh\/6pBc4qbHkLs.nS2me7efGB2Yw33eBp2lQ.pQi1oiTdpjN5Qf5."
+    }
+]
