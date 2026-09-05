@@ -246,7 +246,7 @@ function loginUser($email, $password) {
     return false;
 }
 
-function paginateData($items, $limit = 6) {
+function paginateData($items, $limit = 4) {
     $totalItems = count($items);
     $totalPages = ceil($totalItems / $limit);
 
