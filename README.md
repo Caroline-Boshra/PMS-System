@@ -9,13 +9,12 @@ Welcome to my project! This is the backend for a Product Management System (PMS)
   - Add new products.
   - Update existing product details.
   - Delete products.
-  - View all products with built-in pagination for easy browsing.
-- ** Ordres :** Make orders and update and display history of orders .
+  - View all products with built-in pagination .
+- ** Ordres :** Make orders,update and display history of orders .
 - ** whilist : ** add and delete wishlist .
 
 ##  Built with:
 - HTML / CSS / JavaScript /Bootstrap
 - PHP (for backend integration)
 
----
-I built this project as part of my web development journey! If you have any feedback or questions, feel free to reach out.
+
