@@ -22,5 +22,11 @@
         "name": "tena",
         "email": "tena@gmail.com",
         "password": "$2y$10$mh\/6pBc4qbHkLs.nS2me7efGB2Yw33eBp2lQ.pQi1oiTdpjN5Qf5."
+    },
+    {
+        "id": 5,
+        "name": "Dorothy Potts",
+        "email": "fasaxus@mailinator.com",
+        "password": "$2y$10$HyxYgLwlXj7.wXNpbt3gPuzwZzckJmYLGyO4VP\/pbXoFG\/A512nLq"
     }
 ]

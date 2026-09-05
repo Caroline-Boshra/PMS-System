@@ -34,7 +34,7 @@ $uploadDir = BASE_PATH . "uploads/products/";
 
 if (isset($image) && $image['error'] === UPLOAD_ERR_OK) {
     $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
-    $image_Name = uniqid("prod_", true) . "." . $extension; 
+    $image_Name = uniqid("img_",true) . "." . $extension; 
     
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);

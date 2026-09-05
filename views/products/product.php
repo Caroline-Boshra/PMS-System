@@ -84,23 +84,32 @@
                         
                     </div>
                     <div class="d-flex mb-3">
+                        <div class="me-3">
+                            <span class="fw-bold">Quantity : <?= $product['stock_quantity']?></span> 
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex mb-3">
                         <div class="mb-3">
                             <span class="fw-bold"> Category : <?= getCategoryNameById($product['category_id']) ?></span>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 5rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Add to cart
-                        </button>
-                    </div>
-                   
+                    <form action="<?= BASE_URL ?>handeler/orders/addToCart.php" method="POST">
+                        <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
 
-                    <div class="d-flex gap-2 mb-4">
-                        <button class="btn btn-dark" type="button">Buy Now</button>
-                        <button class="btn btn-outline-secondary" type="button">Save for Later</button>
-                    </div>
+                        <div class="d-flex mb-4">
+                            <input class="form-control text-center me-3" name="quantity" type="number" value="1" min="1" style="max-width: 5rem" />
+                            
+                            <button class="btn btn-outline-dark flex-shrink-0" type="submit" name="action" value="add_to_cart">
+                                <i class="bi-cart-fill me-1"></i> Add to cart
+                            </button>
+                        </div>
+
+                        <div class="d-flex gap-2 mb-4">
+                            <button class="btn btn-dark" type="submit" name="action" value="buy_now">Buy Now</button>
+                            <button class="btn btn-outline-secondary" type="submit" name="action" value="save_for_later">Save for Later</button>
+                        </div>
+                    </form>
 
                     <hr class="my-4"> 
                      <?php 
@@ -144,18 +153,46 @@
                 <?php foreach ($paginatedProducts as $product): ?>
                 <div class="col mb-5">
                     <div class="card h-100 shadow-sm">
-                        <img class="card-img-top" src="<?= BASE_URL . 'uploads/products/' . $product['image'] ?>" alt="Product image" />
+                        <a  href="<?=BASE_URL?>views/products/product.php?id=<?= $product['id'] ?>"> <img class="card-img-top" src="<?= BASE_URL . 'uploads/products/' . $product['image'] ?>" alt="Product image" /></a>
+
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder"><?= $product['product_name'] ?></h5>
-                                $<?= $product['price'] ?>
+                                <h5 class="fw-bolder"> Price : $<?= $product['price'] ?> </h5>
+                                <h5 class="fw-bolder">Category : <?= getCategoryNameById($product['category_id']) ?></h5>
                             </div>
                         </div>
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="product.php?id=<?= $product['id'] ?>">View item</a>
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                
+                                <a class="btn btn-outline-dark flex-fill" href="<?= BASE_URL ?>views/products/product.php?id=<?= $product['id'] ?>">View item</a>
+                                
+                                <?php 
+                                $isSaved = isset($_SESSION['saved_items'][$product['id']]); 
+                                ?>
+
+                                <form action="<?= BASE_URL ?>handeler/orders/addToCart.php" method="POST" class="m-0 d-flex gap-2 align-items-center">
+                                    <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                                    <input type="hidden" name="quantity" value="1">
+                                    
+                                    <button type="submit" name="action" value="save_for_later" class="btn btn-outline-danger" title="<?= $isSaved ? 'Remove from Wishlist' : 'Add to Wishlist' ?>">
+                                        <?php if ($isSaved): ?>
+                                            <i class="bi-heart-fill text-danger"></i>
+                                        <?php else: ?>
+                                            <i class="bi-heart"></i>
+                                        <?php endif; ?>
+                                    </button>
+
+                                    <button class="btn btn-outline-dark" type="submit" name="action" value="add_to_cart" title="Add to Cart">
+                                        <i class="bi-cart-fill"></i> 
+                                    </button>
+
+                                    <button class="btn btn-dark text-nowrap" type="submit" name="action" value="buy_now">Buy Now</button>
+                                </form>
+
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -164,8 +201,7 @@
         </div>
         
     </section>
-<?php 
-            if ($totalPages > 1): ?>
+
             <nav aria-label="Page navigation" class="my-4">
                 <ul class="pagination justify-content-center">
                     
@@ -185,7 +221,7 @@
 
                 </ul>
             </nav>
-        <?php endif; ?>
+        
     <!-- Footer-->
     <?php 
    

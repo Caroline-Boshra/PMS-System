@@ -176,3 +176,59 @@ function validateLoginFields($email, $password) {
         return false;
     }
 }
+
+function validateQuantity($quantity, $fieldName) {
+    if (empty(trim($quantity)) || $quantity < 1) {
+        $_SESSION['errors'][$fieldName] = "Quantity must be a valid number and at least 1.";
+        return false;
+    }
+    
+    return true;
+}
+
+function validateCartFields($product, $quantity) {
+    if (!isset($_SESSION['errors'])) {
+        $_SESSION['errors'] = [];
+    }
+
+    if (!$product) {
+        $_SESSION['errors']['product'] = "This product does not exist.";
+    }
+
+    
+    validateQuantity($quantity, 'quantity');
+
+    return empty($_SESSION['errors']);
+}
+// function validatePhone($phone){
+//     if (empty($phone)) {
+//         $_SESSION['errors']["phone"] = "Phone is required";
+//         return;
+//     }
+//     if (strlen($phone) < 11 || strlen($phone) > 15) {
+//         $_SESSION['errors']["phone"] = "Phone must be 11 digits without country code and up to 15 with country code.";
+//     }
+
+// }
+function validateCheckOut($name,$email,$address,$phone,$notes){
+    $_SESSION['errors'] = [];
+
+    $fields = [
+        "name"     => $name,
+        "email"    => $email,
+        "address"  => $address,
+        "phone"    => $phone,
+        "notes"    => $notes
+        
+    ];
+
+    foreach ($fields as $fieldName => $value) {
+        requiredField($value, $fieldName);
+    }
+
+    validateEmail($email);
+    // validatePhone($phone);
+    
+    return empty($_SESSION['errors']);
+
+}

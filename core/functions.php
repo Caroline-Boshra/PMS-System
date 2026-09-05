@@ -268,3 +268,106 @@ function paginateData($items, $limit = 4) {
         'total_pages'  => $totalPages,
     ];
 }
+
+function addToCart($product, $quantity) {
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+
+    $id = $product['id'];
+
+    if (isset($_SESSION['cart'][$id])) {
+        $_SESSION['cart'][$id]['quantity'] += $quantity;
+    } else {
+        $_SESSION['cart'][$id] = [
+            'id'           => $product['id'],
+            'product_name' => $product['product_name'],
+            'price'        => $product['price'],
+            'image'        => $product['image'],
+            'quantity'     => $quantity
+        ];
+    }
+}
+
+function saveProductForLater($product) {
+    if (!isset($_SESSION['saved_items'])) {
+        $_SESSION['saved_items'] = [];
+    }
+
+    $id = $product['id'];
+
+    if (!isset($_SESSION['saved_items'][$id])) {
+        $_SESSION['saved_items'][$id] = [
+            'id'           => $product['id'],
+            'product_name' => $product['product_name'],
+            'price'        => $product['price'],
+            'image'        => $product['image']
+        ];
+    }
+}
+
+function removeFromCart($id) {
+    if (isset($_SESSION['cart'][$id])) {
+        unset($_SESSION['cart'][$id]);
+        $_SESSION['success'] = "Product removed from cart successfully.";
+    }
+}
+
+function updateCartQuantity($id, $quantity) {
+    if (isset($_SESSION['cart'][$id])) {
+        if ($quantity > 0) {
+            $_SESSION['cart'][$id]['quantity'] = (int)$quantity;
+            // $_SESSION['success'] = "Cart updated successfully.";
+        } else {
+            
+            removeFromCart($id);
+        }
+    }
+}
+function checkOut() {
+  
+
+    if (empty($_SESSION['cart'])) {
+        return;
+    }
+
+    $fileProducts = BASE_PATH . "assets/products/products.json";
+    
+    if (file_exists($fileProducts)) {
+        $allProducts = json_decode(file_get_contents($fileProducts), true) ?? [];
+
+        foreach ($_SESSION['cart'] as $index => $cartItem) {
+            $cartProductId = $cartItem['id'] ?? $index; 
+            $cartQty = $cartItem['quantity'];
+
+            foreach ($allProducts as &$product) {
+                if ($product['id'] == $cartProductId) {
+                    $product['stock_quantity'] = max(0, $product['stock_quantity'] - $cartQty);
+                    break;
+                }
+            }
+            unset($product); 
+        }
+
+        file_put_contents($fileProducts, json_encode($allProducts, JSON_PRETTY_PRINT));
+    }
+
+    if (!isset($_SESSION['orders'])) {
+        $_SESSION['orders'] = [];
+    }
+
+    $_SESSION['orders'][] = [
+        'order_date' => date('Y-m-d H:i:s'),
+        'items'      => $_SESSION['cart']
+    ];
+
+    unset($_SESSION['cart']);
+    
+    $_SESSION['message'] = [
+        'type' => 'success',
+        'text' => 'Your order has been placed successfully and quantity updated!'
+    ];
+    
+    header("Location: " . BASE_URL . "views/myOrders.php");
+    exit();
+}
