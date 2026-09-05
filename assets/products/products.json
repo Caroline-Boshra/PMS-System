@@ -1,52 +1,42 @@
 [
     {
-        "id": 8,
-        "product_name": "Gage Mcleod",
-        "category_id": "3",
-        "price": "671",
-        "stock_quantity": 63,
-        "image": "img_6a9a117f0318c5.86117482.png",
-        "description": "Eum commodi quae est",
-        "status": "active"
-    },
-    {
-        "id": 9,
-        "product_name": "Tyler Marquez",
+        "id": 1,
+        "product_name": "Rhona Kaufman",
         "category_id": "2",
-        "price": "403",
-        "stock_quantity": "550",
-        "image": "img_6a9b6b47ef1764.41828112.png",
-        "description": "Eveniet aspernatur",
+        "price": "866",
+        "stock_quantity": "299",
+        "image": "img_6a9b75e7b46682.35025849.jpg",
+        "description": "Aliqua Consequuntur",
         "status": "active"
     },
     {
-        "id": 10,
-        "product_name": "Judah Dominguez",
-        "category_id": "4",
-        "price": "562",
-        "stock_quantity": "752",
-        "image": "img_6a9b6bb3efb314.31095397.png",
-        "description": "Quia nulla at numqua",
-        "status": "active"
-    },
-    {
-        "id": 11,
-        "product_name": "Bevis Larsen",
-        "category_id": "4",
-        "price": "126",
-        "stock_quantity": "979",
-        "image": "img_6a9b6bc7cae426.61076625.png",
-        "description": "Dolore consequuntur",
+        "id": 2,
+        "product_name": "Xenos Velasquez",
+        "category_id": "5",
+        "price": "622",
+        "stock_quantity": "779",
+        "image": "img_6a9b75fe5aa3a9.11165934.jpg",
+        "description": "Rerum obcaecati odit",
         "status": "inactive"
     },
     {
-        "id": 12,
-        "product_name": "Kendall Cooper",
+        "id": 3,
+        "product_name": "Claire Le",
         "category_id": "1",
-        "price": "517",
-        "stock_quantity": "812",
-        "image": "img_6a9b6bdba6a327.74372110.png",
-        "description": "Quibusdam doloremque",
-        "status": "inactive"
+        "price": "946",
+        "stock_quantity": "931",
+        "image": "img_6a9b7624b01b05.98223546.jpg",
+        "description": "Voluptates porro fac",
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "product_name": "Leilani Nolan",
+        "category_id": "5",
+        "price": "844",
+        "stock_quantity": "20",
+        "image": "img_6a9b76883ac022.76694596.jpg",
+        "description": "Minima nisi ut sed t",
+        "status": "active"
     }
 ]
